@@ -1,3 +1,4 @@
+#Antes de rodar o código, deverão ser instalados os seguintes pacotes / Before running the code, it must be installed the following packages
 #pip install comtypes
 #pip install pycaw
 
@@ -11,9 +12,6 @@ devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
 volume = cast(interface, POINTER(IAudioEndpointVolume))
 
-
-cont = 0
-
 while(True):
 
     data, dia = return_date.today()
@@ -21,15 +19,13 @@ while(True):
     print(data)
     print(dia)
 
-    #if ((dia == 4 and int(str(data).split(" ")[1].split(":")[0]) >= 19)  or dia == 5 or dia == 6): SA1
-
-    if ((dia == 4 and int(str(data).split(" ")[1].split(":")[0]) == 23)  or dia == 5 or dia == 6): #SA2
+    #Para essa aplicação, o computador deve ser mutado após às 23 horas das sextas, nos sábados e nos domingos /  For this application, the computer must be muted after Friday at 11 p.m., on Saturdays and on Sundays
+    if ((dia == 4 and int(str(data).split(" ")[1].split(":")[0]) == 23)  or dia == 5 or dia == 6):
         volume.SetMasterVolumeLevel(-65, None)
 
+    #Em qualquer outro dia, o som deve ser ligado no volume máximo / On any other day, the sound must be on and at maximum volume
     else:
-        volume.SetMasterVolumeLevel(-10, None)
+        volume.SetMasterVolumeLevel(0, None)
     
-
-
-    sleep(60)
+    sleep(3600)
 
