@@ -2,7 +2,6 @@
 #pip install comtypes
 #pip install pycaw
 
-
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
