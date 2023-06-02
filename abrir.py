@@ -9,7 +9,7 @@ import return_date
 
 def abrir():
 
-    open = subprocess.Popen([''])
+    open = subprocess.Popen(['C:\\Program Files\\Shotcut\\shotcut.exe'])
     sleep(15)
 
     while (True):
@@ -18,6 +18,9 @@ def abrir():
 
         print(data)
         print(dia)
+
+        dia = 5
+
 
         #Para essa aplicação, o computador deve ser mutado após às 23 horas das sextas, nos sábados e nos domingos /  For this application, the computer must be muted after Friday at 11 p.m., on Saturdays and on Sundays
         if ((dia == 4 and int(str(data).split(" ")[1].split(":")[0]) == 23)  or dia == 5 or dia == 6):
@@ -42,7 +45,7 @@ def abrir():
                 print('Aberto.')
 
             else:
-                open = subprocess.Popen([''])
+                open = subprocess.Popen(["C:\\Program Files\\Shotcut\\shotcut.exe"])
 
         
         sleep(60)
